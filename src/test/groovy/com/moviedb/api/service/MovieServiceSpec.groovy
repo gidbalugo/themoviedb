@@ -41,7 +41,7 @@ class MovieServiceSpec extends Specification {
         notThrown(MovieNotFoundException.class)
     }
 
-    def "fetchMovieById should invole movieRepository to fetch movie by Id"() {
+    def "fetchMovieById should invoke movieRepository to fetch movie by Id"() {
         given: "test Id"
         UUID mockMovieId = UUID.randomUUID()
 
