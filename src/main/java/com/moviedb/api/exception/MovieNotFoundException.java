@@ -1,5 +1,3 @@
-package com.moviedb.api.service;
+package com.moviedb.api.exception;
 
-public class MovieNotFoundException extends Throwable {
-
-}
+public class MovieNotFoundException extends Throwable {}
