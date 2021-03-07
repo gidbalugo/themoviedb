@@ -2,6 +2,14 @@
 
 Spring boot Coding Exercise - themoviedb API
 
+## Make commands for the application
+- `make build` to build jar of the application
+- `make start` to build **and** run dockerized application
+- `make stop` to stop container of the application
+- `make logs` to show logs of the application
+
+*Note* Application can still be run normally via IDE.
+
 ## Endpoints
 
 `GET` http://localhost:9090/movie/{id}
