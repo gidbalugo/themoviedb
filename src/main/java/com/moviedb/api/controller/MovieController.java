@@ -11,11 +11,11 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-public class MoveController implements MovieOperations {
+public class MovieController implements MovieOperations {
 
   private final MovieService movieService;
 
-  public MoveController(MovieService movieService) {
+  public MovieController(MovieService movieService) {
     this.movieService = movieService;
   }
 

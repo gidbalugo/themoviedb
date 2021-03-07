@@ -16,7 +16,7 @@ class MovieControllerSpec extends Specification {
     private MovieService movieService = Mock()
 
     @Subject
-    private MoveController moveController = new MoveController(movieService)
+    private MovieController moveController = new MovieController(movieService)
 
     def "getById should respond 404 status if id used is not valid UUID"() {
         given: "invalid UUID"
