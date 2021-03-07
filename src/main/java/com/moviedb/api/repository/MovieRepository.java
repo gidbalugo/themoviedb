@@ -10,5 +10,4 @@ import org.springframework.stereotype.Service;
 public interface MovieRepository extends PagingAndSortingRepository<Movie, UUID> {
 
   Optional<Movie> findById(UUID id);
-
 }
