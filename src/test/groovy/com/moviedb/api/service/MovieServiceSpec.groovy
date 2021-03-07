@@ -38,7 +38,7 @@ class MovieServiceSpec extends Specification {
         movieService.fetchMovieById(nonExistingMovieId)
 
         then: "method throws MovieNotFoundException"
-        notThrown(MovieNotFoundException.class)
+        thrown(MovieNotFoundException.class)
     }
 
     def "fetchMovieById should invoke movieRepository to fetch movie by Id"() {
