@@ -5,6 +5,8 @@ import com.moviedb.api.exception.MovieNotFoundException;
 import com.moviedb.api.repository.MovieRepository;
 import java.util.Optional;
 import java.util.UUID;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -20,5 +22,13 @@ public class MovieService {
     Optional<Movie> optionalMovie = movieRepository.findById(id);
 
     return optionalMovie.orElseThrow(MovieNotFoundException::new);
+  }
+
+  public void save(Movie movie) {
+    movieRepository.save(movie);
+  }
+
+  public Page<Movie> fetchAllMovies(Pageable pageable) {
+    return movieRepository.findAll(pageable);
   }
 }

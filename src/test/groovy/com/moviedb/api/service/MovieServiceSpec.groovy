@@ -3,6 +3,7 @@ package com.moviedb.api.service
 import com.moviedb.api.entity.Movie
 import com.moviedb.api.exception.MovieNotFoundException
 import com.moviedb.api.repository.MovieRepository
+import org.springframework.data.domain.Pageable
 import spock.lang.Specification
 import spock.lang.Subject
 
@@ -51,5 +52,18 @@ class MovieServiceSpec extends Specification {
         1 * movieRepository.findById({ movieId ->
             movieId == mockMovieId
         }) >> Optional.of(Mock(Movie.class))
+    }
+
+    def "fetchAllMovies should invoke repository with paginated results"() {
+        given: "test Pageable"
+        Pageable mockPageable = Mock(Pageable.class)
+
+        when:
+        movieService.fetchAllMovies(mockPageable)
+
+        then: "invokes repository to find all movies with the same pageable"
+        1 * movieRepository.findAll({ pageable ->
+            pageable == mockPageable
+        })
     }
 }
