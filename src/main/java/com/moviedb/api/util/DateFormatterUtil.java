@@ -10,9 +10,7 @@ public class DateFormatterUtil {
 
   public static LocalDateTime dateFormatter(String date) {
     DateTimeFormatter formatter = DateTimeFormatter.ofPattern(DEFAULT_STRING_DATE_FORMAT);
-    LocalDate ld = LocalDate.parse(date,formatter);
+    LocalDate ld = LocalDate.parse(date, formatter);
     return LocalDateTime.of(ld, LocalDateTime.now().toLocalTime());
   }
-
-
 }
