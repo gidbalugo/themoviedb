@@ -3,6 +3,9 @@ package com.moviedb.api.controller
 import com.moviedb.api.entity.Movie
 import com.moviedb.api.exception.MovieNotFoundException
 import com.moviedb.api.service.MovieService
+import org.springframework.data.domain.Page
+import org.springframework.data.domain.PageImpl
+import org.springframework.data.domain.Pageable
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
 import spock.lang.Specification
@@ -78,5 +81,25 @@ class MovieControllerSpec extends Specification {
         then: "responds NOT_FOUND"
         response.statusCode == HttpStatus.NOT_FOUND
         response.body == null
+    }
+
+    def "getMovies should return the same paged movies fetch by service"() {
+        given: "mocked Pageable"
+        Pageable mockedPageable = Mock(Pageable.class)
+
+        and: "service returned paged movies"
+        Movie mockedMovie1 = Mock(Movie.class)
+        Movie mockedMovie2 = Mock(Movie.class)
+        Page<Movie> pagedMovies = new PageImpl<>([mockedMovie1, mockedMovie2])
+        movieService.fetchAllMovies(mockedPageable) >> pagedMovies
+
+        when:
+        ResponseEntity<Page<Movie>> response = moveController.getMovies(mockedPageable)
+
+        then: "responds OK status"
+        response.statusCode == HttpStatus.OK
+
+        and: "returns the same paged movies fetched by service"
+        response.body == pagedMovies
     }
 }
