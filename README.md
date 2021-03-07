@@ -8,7 +8,15 @@ Spring boot Coding Exercise - themoviedb API
 - `make stop` to stop container of the application
 - `make logs` to show logs of the application
 
-*Note* Application can still be run normally via IDE.
+*Note* Make commands are tested running in Linux environment. Application can still be run normally via IDE.
+
+To check if application is running:
+
+```bash
+gid@gid:~/nerubia/themoviedb$ docker ps -a
+CONTAINER ID   IMAGE        COMMAND                  CREATED         STATUS         PORTS     NAMES
+c36e5ebe7a23   themoviedb   "/docker-entrypoint.…"   9 minutes ago   Up 9 minutes             themoviedb
+```
 
 ## Endpoints
 
