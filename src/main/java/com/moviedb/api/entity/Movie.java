@@ -1,7 +1,5 @@
 package com.moviedb.api.entity;
 
-import com.moviedb.api.controller.MovieDto;
-import com.moviedb.api.util.DateFormatterUtil;
 import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.UUID;
@@ -39,14 +37,5 @@ public class Movie implements Serializable {
     this.poster = poster;
     this.voteAverage = voteAverage;
     this.releaseDate = releaseDate;
-  }
-
-  public static Movie initializeMovie(MovieDto movieDto) {
-    return new Movie(
-        movieDto.getTitle(),
-        movieDto.getOverview(),
-        movieDto.getPoster(),
-        movieDto.getVoteAverage(),
-        DateFormatterUtil.dateFormatter(movieDto.getReleaseDate()));
   }
 }
