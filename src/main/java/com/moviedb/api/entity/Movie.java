@@ -17,20 +17,15 @@ public class Movie implements Serializable {
 
   @Id private UUID id;
 
-  @Getter
-  private String title;
+  @Getter private String title;
 
-  @Getter
-  private String overview;
+  @Getter private String overview;
 
-  @Getter
-  private String poster;
+  @Getter private String poster;
 
-  @Getter
-  private Integer voteAverage;
+  @Getter private Integer voteAverage;
 
-  @Getter
-  private LocalDateTime releaseDate;
+  @Getter private LocalDateTime releaseDate;
 
   Movie(
       String title,
@@ -54,5 +49,4 @@ public class Movie implements Serializable {
         movieDto.getVoteAverage(),
         DateFormatterUtil.dateFormatter(movieDto.getReleaseDate()));
   }
-
 }
